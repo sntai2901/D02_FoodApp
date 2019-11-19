@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">D02_FoodApp</string>
+    <string name="img">Image</string>
+    <string name="WHeader1">Find Foods You Love</string>
+    <string name="WHeader2">Fast Delivery</string>
+    <string name="WHeader3">Live Tracking</string>
+    <string name="WContent1">Discover the best foods from \nOver 100 Restaurants. </string>
+    <string name="WContent2">Fast delivery to your home,\nOffice and wherever you are.</string>
+    <string name="WContent3">Real time tracking of your food\nOn the after ordered.</string>
+    <string name="Skip">Skip</string>
+    <string name="Next">Next</string>
+    <string name="hi">HI,</string>
+    <string name="StC">Sign in to Continue</string>
+    <string name="yourname">Your Name</string>
+    <string name="password">Password</string>
+    <string name="forgotpass">I Forgot Password</string>
+    <string name="signin">Sign In</string>
+    <string name="noacc">Don\'t have an account?</string>
+    <string name="signup">Signup</string>
+    <string name="r01t1">Tell Me,</string>
+    <string name="r01t2">What is your Name</string>
+    <string name="fn">First Name</string>
+    <string name="ln">Last Name</string>
+    <string name="haveacc">Already have an account?</string>
+    <string name="con">Continue</string>
+    <string name="si">Sign in</string>
+    <string name="r02t1">And,</string>
+    <string name="r02t2">Your email address</string>
+    <string name="r03t1">Password?</string>
+    <string name="r03t2">Please enter your password</string>
+    <string name="urpass">Your password</string>
+    <string name="reurpass">Re-type password</string>
+    <string name="fgt1">We Need,</string>
+    <string name="fgt2">Enter the email address to send \nyour password Reset</string>
+    <string name="email">Email Address</string>
+    <string name="rspass">RESET PASSWORD</string>
+    <string name="vct1">Enter 4 Digit</string>
+    <string name="vct2">We sent a verification\nCode into your Phone</string>
+    <string name="vct3">4 - Digit code</string>
+    <string name="vct4">Sent code Again</string>
+    <string name="conf">conform</string>
+    <string name="done1">Thank you for registering\nYour Account</string>
+    <string name="expmenu">Explore Menu</string>
+    <string name="reg">Register</string>
+    <string name="fg">Forgot Password</string>
+    <string name="vc">Verification code</string>
+    <string name="hint">___</string>
+
+
+</resources>
