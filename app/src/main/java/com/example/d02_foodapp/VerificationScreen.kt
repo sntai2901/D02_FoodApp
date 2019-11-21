@@ -6,9 +6,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
-import android.view.Menu
-import android.view.MenuItem
 import android.view.View
 import androidx.core.content.res.ResourcesCompat
 import com.chaos.view.PinView
@@ -56,7 +53,7 @@ class VerificationScreen : AppCompatActivity() {
         pinView.setItemBackgroundColor(Color.WHITE)
         pinView.setHideLineWhenFilled(false)
         (findViewById<View>(R.id.firstPinView) as PinView).setAnimationEnable(true)
-        signin_btn.setOnClickListener {
+        btn_verification.setOnClickListener {
             val intent = Intent(this, VerificationScreen::class.java)
             // start your next activity
             startActivity(intent)

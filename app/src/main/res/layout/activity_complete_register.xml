@@ -33,7 +33,7 @@
 
 
     <Button
-        android:id="@+id/signin_btn"
+        android:id="@+id/btn_completereg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/set200dp"

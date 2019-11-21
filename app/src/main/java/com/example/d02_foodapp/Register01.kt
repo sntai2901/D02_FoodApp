@@ -10,7 +10,7 @@ class Register01 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register01)
-        signin_btn.setOnClickListener {
+        btn_conr1.setOnClickListener {
             val intent = Intent(this, Register02::class.java)
             // start your next activity
             startActivity(intent)

@@ -69,7 +69,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/set16dp"
+        android:layout_marginStart="@dimen/set20dp"
         android:layout_marginTop="@dimen/set8dp"
         android:text="@string/fn"
 
@@ -97,17 +97,17 @@
         android:id="@+id/textView4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/set16dp"
-        android:layout_marginTop="@dimen/set24dp"
+        android:layout_marginStart="@dimen/set20dp"
         android:text="@string/ln"
+        android:textColor="@color/light"
         android:textSize="@dimen/set15sp"
         android:textStyle="bold"
-        android:textColor="@color/light"
+        android:layout_marginTop="@dimen/set90dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/editText2"
+        android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/set16dp"
@@ -121,7 +121,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
-        android:id="@+id/signin_btn"
+        android:id="@+id/btn_conr1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/set200dp"
@@ -148,7 +148,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/textView7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signin_btn"
+        app:layout_constraintTop_toBottomOf="@+id/btn_conr1"
         app:layout_constraintHorizontal_chainStyle="packed"/>
 
     <TextView
@@ -163,6 +163,6 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/signin_btn" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_conr1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

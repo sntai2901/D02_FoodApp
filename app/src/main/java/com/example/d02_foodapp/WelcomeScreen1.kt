@@ -1,8 +1,10 @@
 package com.example.d02_foodapp
 
+import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_welcome_screen1.*
 
 
@@ -10,6 +12,17 @@ class WelcomeScreen1 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        val isFirstRun =
+//            getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE)
+//                .getBoolean("isFirstRun", true)
+//
+//        if (isFirstRun) { //show start activity
+//            startActivity(Intent(this, SignIn::class.java))
+//            Toast.makeText(this, "First Run", Toast.LENGTH_LONG)
+//                .show()
+//        }
+//        getSharedPreferences("PREFERENCE", Context.MODE_PRIVATE).edit()
+//            .putBoolean("isFirstRun", false).commit()
         setContentView(R.layout.activity_welcome_screen1)
 
         w1Next.setOnClickListener {

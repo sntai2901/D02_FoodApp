@@ -10,7 +10,7 @@ class ForgotPassword : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_forgot_password)
-        signin_btn.setOnClickListener {
+        btn_forgotpass.setOnClickListener {
             val intent = Intent(this, VerificationScreen::class.java)
             // start your next activity
             startActivity(intent)
