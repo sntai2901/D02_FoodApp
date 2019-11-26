@@ -10,17 +10,20 @@ import android.text.TextWatcher
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.core.content.res.ResourcesCompat
+import androidx.databinding.DataBindingUtil
 import com.chaos.view.PinView
+import com.example.d02_foodapp.databinding.ActivityVerificationScreenBinding
 import kotlinx.android.synthetic.main.activity_verification_screen.*
 
 
 class VerificationScreen : AppCompatActivity() {
+    private  lateinit var binding: ActivityVerificationScreenBinding
     val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_verification_screen)
-
-        val pinView = findViewById<PinView>(R.id.firstPinView)
+//        setContentView(R.layout.activity_verification_screen)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_verification_screen)
+        val pinView = binding.firstPinView
         pinView.setTextColor(
             ResourcesCompat.getColor(resources, R.color.light, theme))
         pinView.setTextColor(
@@ -55,7 +58,7 @@ class VerificationScreen : AppCompatActivity() {
         pinView.setItemBackgroundColor(Color.WHITE)
         pinView.setHideLineWhenFilled(false)
         (findViewById<View>(R.id.firstPinView) as PinView).setAnimationEnable(true)
-        btn_verification.setOnClickListener {
+        binding.btnVerification.setOnClickListener {
             val intent = Intent(this, VerificationScreen::class.java)
             // start your next activity
             imm.hideSoftInputFromWindow(it.windowToken,0)

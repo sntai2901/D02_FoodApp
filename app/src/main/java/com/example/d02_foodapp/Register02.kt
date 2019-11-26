@@ -18,12 +18,15 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
 import android.view.View
+import android.view.inputmethod.InputBinding
 import android.view.inputmethod.InputMethodManager
 import android.widget.Button
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import androidx.databinding.DataBindingUtil
+import com.example.d02_foodapp.databinding.ActivityRegister02Binding
 import kotlinx.android.synthetic.main.activity_register02.*
 import okhttp3.MediaType
 import okhttp3.MultipartBody
@@ -37,6 +40,7 @@ import java.io.FileNotFoundException
 
 @SuppressLint("ByteOrderMark")
 class Register02 : AppCompatActivity() {
+    private lateinit var binding: ActivityRegister02Binding
     val Request_Code_Image : Int = 123
     lateinit var imgReg : ImageView
     lateinit var btnCon2 : Button
@@ -46,7 +50,8 @@ class Register02 : AppCompatActivity() {
     val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register02)
+//        setContentView(R.layout.activity_register02)
+        binding = DataBindingUtil.setContentView(this,R.layout.activity_register02)
         // Assume this Activity is the current activity
         setupPermissions()
 
@@ -57,13 +62,13 @@ class Register02 : AppCompatActivity() {
             startActivityForResult(intent,Request_Code_Image)
         }
 
-        textView7.setOnClickListener {
+        binding.txtSignIn.setOnClickListener {
                 val intent = Intent(this, SignIn::class.java)
                 // start your next activity
                 imm.hideSoftInputFromWindow(it.windowToken,0)
                 startActivity(intent)
             }
-        btn_conr2.setOnClickListener {
+        binding.btnConr2.setOnClickListener {
             //            // Here, thisActivity is the current activity
 //            if (ContextCompat.checkSelfPermission(this,
 //                    Manifest.permission.READ_EXTERNAL_STORAGE)
