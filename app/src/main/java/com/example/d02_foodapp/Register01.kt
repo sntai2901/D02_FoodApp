@@ -15,18 +15,18 @@ class Register01 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_register01)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_register01)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_register01)
 
         binding.btnConr1.setOnClickListener {
             val intent = Intent(this, Register02::class.java)
             // start your next activity
-            imm.hideSoftInputFromWindow(it.windowToken,0)
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
             startActivity(intent)
         }
         binding.txtSignIn.setOnClickListener {
             val intent = Intent(this, SignIn::class.java)
             // start your next activity
-            imm.hideSoftInputFromWindow(it.windowToken,0)
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
             startActivity(intent)
         }
     }

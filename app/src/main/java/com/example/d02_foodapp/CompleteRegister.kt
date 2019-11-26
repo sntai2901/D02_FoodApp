@@ -14,11 +14,11 @@ class CompleteRegister : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_complete_register)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_complete_register)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_complete_register)
         binding.btnCompletereg.setOnClickListener {
             val intent = Intent(this, this::class.java)
             // start your next activity
-            imm.hideSoftInputFromWindow(it.windowToken,0)
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
             startActivity(intent)
         }
     }

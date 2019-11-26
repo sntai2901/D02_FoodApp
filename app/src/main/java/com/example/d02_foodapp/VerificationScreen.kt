@@ -17,21 +17,25 @@ import kotlinx.android.synthetic.main.activity_verification_screen.*
 
 
 class VerificationScreen : AppCompatActivity() {
-    private  lateinit var binding: ActivityVerificationScreenBinding
+    private lateinit var binding: ActivityVerificationScreenBinding
     val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_verification_screen)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_verification_screen)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_verification_screen)
         val pinView = binding.firstPinView
         pinView.setTextColor(
-            ResourcesCompat.getColor(resources, R.color.light, theme))
+            ResourcesCompat.getColor(resources, R.color.light, theme)
+        )
         pinView.setTextColor(
-            ResourcesCompat.getColorStateList(resources, R.color.hard, theme))
+            ResourcesCompat.getColorStateList(resources, R.color.hard, theme)
+        )
         pinView.setLineColor(
-            ResourcesCompat.getColor(resources, R.color.light, theme))
+            ResourcesCompat.getColor(resources, R.color.light, theme)
+        )
         pinView.setLineColor(
-            ResourcesCompat.getColorStateList(resources, R.color.hard, theme))
+            ResourcesCompat.getColorStateList(resources, R.color.hard, theme)
+        )
         pinView.itemCount = 4
         pinView.itemHeight = resources.getDimensionPixelSize(R.dimen.pv_pin_view_item_size)
         pinView.itemWidth = resources.getDimensionPixelSize(R.dimen.pv_pin_view_item_size)
@@ -40,7 +44,7 @@ class VerificationScreen : AppCompatActivity() {
         pinView.lineWidth = resources.getDimensionPixelSize(R.dimen.pv_pin_view_item_line_width)
         pinView.setAnimationEnable(true)// start animation when adding text
         pinView.isCursorVisible = true
-        pinView.cursorColor = ResourcesCompat.getColor(resources, R.color.hard , theme)
+        pinView.cursorColor = ResourcesCompat.getColor(resources, R.color.hard, theme)
         pinView.cursorWidth = resources.getDimensionPixelSize(R.dimen.pv_pin_view_cursor_width)
         pinView.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {
@@ -61,12 +65,10 @@ class VerificationScreen : AppCompatActivity() {
         binding.btnVerification.setOnClickListener {
             val intent = Intent(this, VerificationScreen::class.java)
             // start your next activity
-            imm.hideSoftInputFromWindow(it.windowToken,0)
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
             startActivity(intent)
         }
     }
-
-
 
 
 }

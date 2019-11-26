@@ -41,33 +41,33 @@ import java.io.FileNotFoundException
 @SuppressLint("ByteOrderMark")
 class Register02 : AppCompatActivity() {
     private lateinit var binding: ActivityRegister02Binding
-    val Request_Code_Image : Int = 123
-    lateinit var imgReg : ImageView
-    lateinit var btnCon2 : Button
-    var realpath : String? = ""
-    private val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE : Int = 291
-    val TAG :String = "AAA"
+    val Request_Code_Image: Int = 123
+    lateinit var imgReg: ImageView
+    lateinit var btnCon2: Button
+    var realpath: String? = ""
+    private val MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE: Int = 291
+    val TAG: String = "AAA"
     val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 //        setContentView(R.layout.activity_register02)
-        binding = DataBindingUtil.setContentView(this,R.layout.activity_register02)
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_register02)
         // Assume this Activity is the current activity
         setupPermissions()
 
         anhxa()
-        imgReg.setOnClickListener{
+        imgReg.setOnClickListener {
             val intent = Intent(ACTION_PICK)
             intent.type = "image/*"
-            startActivityForResult(intent,Request_Code_Image)
+            startActivityForResult(intent, Request_Code_Image)
         }
 
         binding.txtSignIn.setOnClickListener {
-                val intent = Intent(this, SignIn::class.java)
-                // start your next activity
-                imm.hideSoftInputFromWindow(it.windowToken,0)
-                startActivity(intent)
-            }
+            val intent = Intent(this, SignIn::class.java)
+            // start your next activity
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
+            startActivity(intent)
+        }
         binding.btnConr2.setOnClickListener {
             //            // Here, thisActivity is the current activity
 //            if (ContextCompat.checkSelfPermission(this,
@@ -98,27 +98,29 @@ class Register02 : AppCompatActivity() {
             var file_path: String = file.absolutePath
             var arrnamefile: List<String> = file_path.split(".")
             file_path = arrnamefile[0] + System.currentTimeMillis() + "." + arrnamefile[1]
-            Log.d("BBB",file_path)
-            var requestBody = RequestBody.create(MediaType.parse("multipart/form-data"),file)
-            var body :MultipartBody.Part = MultipartBody.Part.createFormData("uploaded_file",file_path,requestBody)
+            Log.d("BBB", file_path)
+            var requestBody = RequestBody.create(MediaType.parse("multipart/form-data"), file)
+            var body: MultipartBody.Part =
+                MultipartBody.Part.createFormData("uploaded_file", file_path, requestBody)
             var dataClientKT: DataClientKT = APIUtilsKT.data!!
-            var callback : Call<String> = dataClientKT.UploadPhoto(body)
+            var callback: Call<String> = dataClientKT.UploadPhoto(body)
             Log.d("BBB", callback.toString())
             callback.enqueue(object : Callback<String> {
                 override fun onResponse(call: Call<String>, response: Response<String>) {
                     if (response != null) {
-                        val message :String = response.body()
+                        val message: String = response.body()
                         Log.d("BBB", "success$message")
-                    }else{
-                        val message :String = response.body()
+                    } else {
+                        val message: String = response.body()
                         Log.d("BBB", "fail$message")
                     }
                 }
+
                 override fun onFailure(call: Call<String>, t: Throwable) {
-                    Log.d("BBB",t.message)
+                    Log.d("BBB", t.message)
                 }
             })
-            imm.hideSoftInputFromWindow(it.windowToken,0)
+            imm.hideSoftInputFromWindow(it.windowToken, 0)
         }
 //        btn_conr2.setOnClickListener {
 //            val intent = Intent(this, Register03::class.java)
@@ -126,28 +128,30 @@ class Register02 : AppCompatActivity() {
 //            startActivity(intent)
 //        }
     }
+
     //    fun onClick(view: View?) {
 //        requestPermionAndPickImage()
 //    }
-    private fun anhxa(){
+    private fun anhxa() {
         imgReg = findViewById(R.id.imageUpload)
         btnCon2 = findViewById(R.id.btn_conr2)
     }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if (requestCode == Request_Code_Image && resultCode == Activity.RESULT_OK &&  null != data){
+        if (requestCode == Request_Code_Image && resultCode == Activity.RESULT_OK && null != data) {
             val uri = data.data
             realpath = getRealPathFromURI(uri)
             try {
                 val inputStream = uri?.let { contentResolver.openInputStream(it) }
                 var bitmap = BitmapFactory.decodeStream(inputStream)
                 imgReg.setImageBitmap(bitmap)
-            }
-            catch (e : FileNotFoundException){
+            } catch (e: FileNotFoundException) {
                 e.printStackTrace()
             }
         }
         super.onActivityResult(requestCode, resultCode, data)
     }
+
     private fun getRealPathFromURI(contentUri: Uri?): String? {
         var path: String? = null
         val proj = arrayOf(MediaStore.MediaColumns.DATA)
@@ -160,22 +164,31 @@ class Register02 : AppCompatActivity() {
         cursor.close()
         return path
     }
+
     private fun setupPermissions() {
-        val permission = ContextCompat.checkSelfPermission(this,
-            Manifest.permission.READ_EXTERNAL_STORAGE)
+        val permission = ContextCompat.checkSelfPermission(
+            this,
+            Manifest.permission.READ_EXTERNAL_STORAGE
+        )
 
         if (permission != PackageManager.PERMISSION_GRANTED) {
             Log.i(TAG, "Permission to record denied")
             makeRequest()
         }
     }
+
     private fun makeRequest() {
-        ActivityCompat.requestPermissions(this,
+        ActivityCompat.requestPermissions(
+            this,
             arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE),
-            MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE)
+            MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE
+        )
     }
-    override fun onRequestPermissionsResult(requestCode: Int,
-                                            permissions: Array<String>, grantResults: IntArray) {
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>, grantResults: IntArray
+    ) {
         when (requestCode) {
             MY_PERMISSIONS_REQUEST_READ_EXTERNAL_STORAGE -> {
                 if (grantResults.isEmpty() || grantResults[0] != PackageManager.PERMISSION_GRANTED) {
