@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".SignIn">
 
     <ImageView
@@ -128,9 +129,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/set24dp"
         android:text="@string/forgotpass"
+        android:textColor="@color/light"
         android:textSize="@dimen/set15sp"
         android:textStyle="bold"
-        android:textColor="@color/light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />

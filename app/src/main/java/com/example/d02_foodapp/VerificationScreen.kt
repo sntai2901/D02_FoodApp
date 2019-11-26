@@ -1,5 +1,6 @@
 package com.example.d02_foodapp
 
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -7,13 +8,14 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import androidx.core.content.res.ResourcesCompat
 import com.chaos.view.PinView
 import kotlinx.android.synthetic.main.activity_verification_screen.*
 
 
 class VerificationScreen : AppCompatActivity() {
-
+    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_verification_screen)
@@ -56,6 +58,7 @@ class VerificationScreen : AppCompatActivity() {
         btn_verification.setOnClickListener {
             val intent = Intent(this, VerificationScreen::class.java)
             // start your next activity
+            imm.hideSoftInputFromWindow(it.windowToken,0)
             startActivity(intent)
         }
     }
