@@ -22,11 +22,10 @@
             android:id="@+id/backButton"
             android:layout_width="@dimen/set50dp"
             android:layout_height="@dimen/set40dp"
-            android:layout_marginTop="8dp"
-            android:scaleType=""
+            android:layout_marginTop="@dimen/set8dp"
             android:src="@drawable/icon_back"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"></ImageView>
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <TextView
             android:id="@+id/toolbar_title"
