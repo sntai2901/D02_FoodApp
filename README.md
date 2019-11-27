@@ -18,6 +18,7 @@
   - Draw Button
   - RecyclerView
   - App permission require
+  - Binding
 
 ## Unrealized!
   -ViewPaging2 + indicator
